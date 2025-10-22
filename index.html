@@ -1,0 +1,77 @@
+# 1) क्लोन या नया repo बनाना (अगर अभी तक GitHub पर repo नहीं है तो पहले वेबसाइट से बनाले)
+git clone https://github.com/dkv411/dkv-h.git   # अगर पहले से repo बना रखा है
+cd dkv-h
+
+# 2) index.html बनाओ (या अपनी file यहाँ copy करो)
+cat > index.html <<'EOF'
+<!-- यहाँ वही HTML पेस्ट कर दे जो तूने दिया है -->
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DKV HACK 07</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Courier New", monospace;
+      background: radial-gradient(circle at center, #000 60%, #001f3f);
+      color: #00ff99;
+      text-align: center;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    h1 {
+      font-size: 2.8em;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px #00ff99, 0 0 40px #00ff99;
+      animation: flicker 2s infinite;
+    }
+    @keyframes flicker {
+      0%, 18%, 22%, 25%, 53%, 57%, 100% {
+        opacity: 1;
+      }
+      20%, 24%, 55% {
+        opacity: 0.4;
+      }
+    }
+    .arrow {
+      position: absolute;
+      bottom: 40px;
+      font-size: 2em;
+      animation: bounce 1.2s infinite;
+    }
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .logo {
+      font-size: 1.5em;
+      color: #00ff99;
+      letter-spacing: 2px;
+      margin-top: 15px;
+      text-shadow: 0 0 10px #00ff99;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔰 DKV HACK 07 🔰</h1>
+  <div class="logo">Powered by DKV</div>
+  <div class="arrow">⬇️</div>
+</body>
+</html>
+EOF
+
+# 3) Commit और push करो
+git add index.html
+git commit -m "Add index.html for GitHub Pages"
+git push origin main   # अगर branch 'main' न हो तो 'master' लिखो
